@@ -44,7 +44,7 @@ def topology():
 
     path = os.path.dirname(os.path.abspath(__file__))
     nodes = net.aircrafts + net.aps
-    net.telemetry(nodes=nodes, data_type='position', icon_text_size=8,
+    net.telemetry(nodes=nodes, data_type='position', icon_text_size=8, image='{}/map.jpg'.format(path),
                   icon='{}/plane.png'.format(path), icon_width=.8, icon_height=.8,
                   min_x=-20, max_x=0, min_y=30, max_y=45)
 

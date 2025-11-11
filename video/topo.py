@@ -5,6 +5,7 @@ This example is implemented using celestrak
 """
 
 import os
+import math
 
 from mininet.term import makeTerm
 from mininet.log import setLogLevel, info
@@ -14,16 +15,34 @@ from mn_wifi.link import wmediumd, mesh
 from mn_wifi.wmediumdConnector import interference
 
 
+def deg_to_meters(lat_deg, lon_deg, ref_lat=0.0, ref_lon=0.0):
+    lat_deg = float(lat_deg)
+    lon_deg = float(lon_deg)
+    ref_lat = float(ref_lat)
+    ref_lon = float(ref_lon)
+
+    R = 6371000.0  # average radius of the Earth in meters
+
+    dlat = math.radians(lat_deg - ref_lat)
+    dlon = math.radians(lon_deg - ref_lon)
+
+    dy = R * dlat
+    dx = R * math.cos(math.radians(ref_lat)) * dlon
+    return dx, dy
+
+
 def topology():
     "Create a network."
     net = Mininet_wifi(link=wmediumd, wmediumd_mode=interference)
 
     info("*** Creating nodes\n")
     sat1 = net.addSatellite('sat1', catnr=26900) # Intelsat 901
-    sta1 = net.addStation('sta1', position='-49,-5,0')
+
+    px, py = deg_to_meters(-49, 5)
+    sta1 = net.addStation('sta1', position=f'{px},{py},0')
 
     info("*** Configuring propagation model\n")
-    net.setPropagationModel(model="logDistance", exp=1.5)
+    net.setPropagationModel(model="logDistance", exp=1)
 
     info("*** Configuring nodes\n")
     net.configureNodes()
@@ -37,7 +56,7 @@ def topology():
     path = os.path.dirname(os.path.abspath(__file__))
     nodes = net.satellites + net.stations
     net.telemetry(nodes=nodes, data_type='position', image='{}/map.jpg'.format(path),
-                  min_x=-180, max_x=180, min_y=-90, max_y=90, icon_text_size=12,
+                  min_x=-20_015_000, max_x=20_015_000, min_y=-10_007_000, max_y=10_007_000, icon_text_size=12,
                   icon='{}/plane.png'.format(path), icon_width=10.6, icon_height=10.6)
 
     info("*** Starting network\n")

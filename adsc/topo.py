@@ -28,7 +28,7 @@ def topology():
         planes[name] = net.addAircraft(name)
 
     info("*** Configuring propagation model\n")
-    net.setPropagationModel(model="logDistance", exp=2)
+    net.setPropagationModel(model="logDistance", exp=1)
 
     info("*** Configuring nodes\n")
     net.configureNodes()
@@ -51,7 +51,7 @@ def topology():
     path = os.path.dirname(os.path.abspath(__file__))
     nodes = net.aircrafts + net.satellites
     net.telemetry(nodes=nodes, data_type='position', image='{}/map.jpg'.format(path),
-                  min_x=-180, max_x=180, min_y=-90, max_y=90, icon_text_size=12,
+                  min_x=-20_015_000, max_x=20_015_000, min_y=-10_007_000, max_y=10_007_000, icon_text_size=12,
                   icon='{}/plane.png'.format(path), icon_width=10.6, icon_height=10.6)
 
     info("*** Starting network\n")

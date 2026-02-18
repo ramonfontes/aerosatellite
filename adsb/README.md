@@ -1,4 +1,4 @@
-# Aircraft-to-Ground Communication
+# Aircraft Surveillance
 
 In this use case, we demonstrate the flexibility of the proposed emulation framework in reproducing realistic Aircraft-to-
 Ground (A2G) communication scenarios. To that end, we employed the Automatic Dependent Surveillance–Broadcast

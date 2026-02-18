@@ -1,4 +1,4 @@
-# Aircraft-to-Satellite Communication
+# Automatic Dependent Surveillance
 
 This use case illustrates the exchange of surveillance data between an aircraft and a satellite using the ADS-C (Automatic
 Dependent Surveillance–Contract) protocol over the ATN/IPS (Aeronautical Telecommunications Network over IP

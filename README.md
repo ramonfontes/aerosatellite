@@ -12,7 +12,7 @@ Ground (A2G) communication scenarios. To that end, we employed the Automatic Dep
 (ADS-B) protocol to emulate aircraft telemetry and surveillance behavior. 
 
 
-## [Space Networking Systems](mesh/README.md)
+## [Space Networking System](mesh/README.md)
 
 In this use case, the emulation framework was extended to investigate satellite-to-satellite communication, focusing on
 the interactions within a low Earth orbit (LEO) constellation. The primary goal of this experiment was to evaluate the

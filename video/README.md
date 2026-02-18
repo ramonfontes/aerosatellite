@@ -1,4 +1,4 @@
-# Satellite-to-Ground Communication
+# Video Streaming
 
 In this use case, the emulation framework was extended to investigate satellite-to-ground video transmission, showcasing
 the system’s capability to support high-bandwidth and time-sensitive multimedia data flows. This scenario is particularly

@@ -1,4 +1,4 @@
-# Satellite-to-Satellite Communication
+# Space Networking System
 
 In this use case, the emulation framework was extended to investigate satellite-to-satellite communication, focusing on
 the interactions within a low Earth orbit (LEO) constellation. The primary goal of this experiment was to evaluate the

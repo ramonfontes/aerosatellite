@@ -1,3 +1,10 @@
+# Requirements
+
+* https://github.com/intrig-unicamp/mininet-wifi
+  * step 1: git clone https://github.com/intrig-unicamp/mininet-wifi -b aerosatellite
+  * step 2: $ cd mininet-wifi
+  * step 3: $ sudo util/install.sh -Wlnfv
+
 # Use Cases
 
 ## [Traffic Collision Avoidance System](tcas/README.md)

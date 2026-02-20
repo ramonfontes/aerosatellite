@@ -52,7 +52,7 @@ def topology():
     nodes = net.aircrafts + net.satellites
     net.telemetry(nodes=nodes, data_type='position', image='{}/map.jpg'.format(path),
                   min_x=-20_015_000, max_x=20_015_000, min_y=-10_007_000, max_y=10_007_000, icon_text_size=12,
-                  icon='{}/plane.png'.format(path), icon_width=10.6, icon_height=10.6)
+                  icon='{}/plane.png'.format(path), icon_width=1500000, icon_height=1500000)
 
     info("*** Starting network\n")
     net.start()
@@ -64,10 +64,10 @@ def topology():
     net.configureSatellites('{}/satellites.txt'.format(path))
 
     info("*** Configure Aircrafts\n")
-    net.configureAircrafts(21, -32, 2000000, protocol='adsc') # lat, long, range
+    net.configureAircrafts(-5.93, -35.24, 200000, protocol='adsc') # lat, long, range
 
-    makeTerm(planes["plane1"], title='plane1', cmd="bash -c 'python sender.py {};'".format("plane1"))
-    makeTerm(sat1, title='sat1', cmd="bash -c 'python decoder.py {};'".format("sat1"))
+    makeTerm(planes["plane1"], title='plane1', cmd="bash -c 'python adsc/sender.py {};'".format("plane1"))
+    makeTerm(sat1, title='sat1', cmd="bash -c 'python adsc/decoder.py {};'".format("sat1"))
 
     info("*** Running CLI\n")
     CLI(net)

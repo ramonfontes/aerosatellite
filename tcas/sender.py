@@ -14,25 +14,18 @@ IFACE = sys.argv[1] + "-mp0"
 # -------------------------
 def send_adsb_from_file(filename):
     try:
-        # Lê o conteúdo do arquivo (uma linha Base64)
         with open(filename, "r") as f:
             line = f.readline().strip()
 
-        # Decodifica Base64 para bytes reais
         adsb_bytes = base64.b64decode(line)
-
-        # Monta o pacote IP/UDP com payload ADS-B
         pkt = IP(dst=DST_IP) / UDP(dport=DST_PORT) / Raw(load=adsb_bytes)
-
-        # Envia o pacote via Scapy
         send(pkt, iface=IFACE, verbose=0)
-
-        print(f"Enviado {len(adsb_bytes)} bytes ADS-B via {IFACE} para {DST_IP}:{DST_PORT}")
+        print(f"{len(adsb_bytes)} ADS-B bytes sent via {IFACE} to {DST_IP}:{DST_PORT}")
 
     except FileNotFoundError:
-        print(f"Arquivo {filename} não encontrado.")
+        print(f"File {filename} not found.")
     except Exception as e:
-        print(f"Erro ao enviar ADS-B: {e}")
+        print(f"Error: {e}")
 
 # -------------------------
 # MAIN

@@ -38,7 +38,7 @@ def topology():
     info("*** Creating nodes\n")
     sat1 = net.addSatellite('sat1', catnr=26900) # Intelsat 901
 
-    px, py = deg_to_meters(-49, 5)
+    px, py = deg_to_meters(-5.93, -35.24)
     sta1 = net.addStation('sta1', position=f'{px},{py},0')
 
     info("*** Configuring propagation model\n")
@@ -65,7 +65,7 @@ def topology():
     info("*** Configure Satellites\n")
     net.configureSatellites('{}/satellites.txt'.format(path))
 
-    makeTerm(sat1, title='sat1', cmd="bash -c 'cvlc --loop video.mp4 --sout \"#transcode{vcodec=h264,vb=500,scale=0.5,acodec=mp3,ab=64,channels=2,samplerate=44100}:rtp{dst=10.0.0.2,port=5004,mux=ts}\" :no-sout-all :sout-keep;'")
+    makeTerm(sat1, title='sat1', cmd="bash -c 'cvlc --loop video/video.mp4 --sout \"#transcode{vcodec=h264,vb=500,scale=0.5,acodec=mp3,ab=64,channels=2,samplerate=44100}:rtp{dst=10.0.0.2,port=5004,mux=ts}\" :no-sout-all :sout-keep;'")
     makeTerm(sta1, title='sta1', cmd="bash -c 'cvlc rtp://@:5004;'")
 
     info("*** Running CLI\n")

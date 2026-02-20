@@ -58,7 +58,7 @@ def topology():
     info("*** Configuring nodes\n")
     net.configureNodes()
 
-    info("*** Creating Link\n")
+    info("*** Creating link\n")
     net.addLink(decoder1, ap1)
 
     path = os.path.dirname(os.path.abspath(__file__))
@@ -67,14 +67,14 @@ def topology():
     min_py, min_px = deg_to_meters(-20, 30)
     max_py, max_px = deg_to_meters(0, 45)
     net.telemetry(nodes=nodes, data_type='position', icon_text_size=8, image='{}/map.jpg'.format(path),
-                  icon='{}/plane.png'.format(path), icon_width=.8, icon_height=.8,
+                  icon='{}/plane.png'.format(path), icon_width=150000, icon_height=150000,
                   min_x=min_px, max_x=max_px, min_y=min_py, max_y=max_py)
 
     info("*** Starting network\n")
     net.start()
 
     info("*** Configure Aircrafts\n")
-    net.configureAircrafts(38.73, -9.13, 150000, 'adsb') # lat, long, range
+    net.configureAircrafts(-9.13, 38.73, 250000, 'adsb') # lat, long, range
 
     makeTerm(planes["plane1"], title='plane1', cmd="bash -c 'python sender.py {};'".format("plane1-wlan0"))
     makeTerm(decoder1, title='decoder1', cmd="bash -c 'python decoder.py {};'".format("decoder1"))

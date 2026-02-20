@@ -47,7 +47,7 @@ def topology():
     nodes = net.aircrafts
     net.telemetry(nodes=nodes, data_type='position', image='{}/map.jpg'.format(path),
                   min_x=-20_015_000, max_x=20_015_000, min_y=-10_007_000, max_y=10_007_000, icon_text_size=12,
-                  icon='{}/plane.png'.format(path), icon_width=10.6, icon_height=10.6)
+                  icon='{}/plane.png'.format(path), icon_width=150000, icon_height=150000)
 
     info("*** Starting network\n")
     net.start()

@@ -7,6 +7,8 @@
 
 # Use Cases
 
+Each use case described below includes an illustrative video to demonstrate the emulation in real-time. You can find the videos within the specific documentation links.
+
 ## [Traffic Collision Avoidance System](tcas/README.md)
 
 This use case explores the Traffic Collision Avoidance System (TCAS) functionality. The aircraft positions used in this
